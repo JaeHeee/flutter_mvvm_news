@@ -1,4 +1,4 @@
-import 'package:flutter_mvvm_news_app/models/news_article.dart';
+import '../models/news_article.dart';
 
 class NewsArticleViewModel {
   final NewsArticle _newsArticle;

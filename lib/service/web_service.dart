@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+
 import '../config/config.dart';
 import '../models/news_article.dart';
 

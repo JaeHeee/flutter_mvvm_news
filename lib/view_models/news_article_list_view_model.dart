@@ -17,8 +17,28 @@ class NewsArticleListViewModel with ChangeNotifier {
   List<NewsArticleViewModel> get articles => _articles;
   LoadingStatus get loadingStatus => _loadingStatus;
 
+  void topCountryHeadLines(String country) async {
+    List<NewsArticle> newsArticles =
+        await WebService().fetchTopHeadLinesCountry(country);
+
+    _loadingStatus = LoadingStatus.searching;
+    notifyListeners();
+
+    _articles = newsArticles
+        .map((article) => NewsArticleViewModel(article: article))
+        .toList();
+
+    if (_articles.isEmpty) {
+      _loadingStatus = LoadingStatus.empty;
+    } else {
+      _loadingStatus = LoadingStatus.completed;
+    }
+    notifyListeners();
+  }
+
   void topHeadLines() async {
     List<NewsArticle> newsArticles = await WebService().fetchTopHeadLines();
+
     _loadingStatus = LoadingStatus.searching;
     notifyListeners();
 

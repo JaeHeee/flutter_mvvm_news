@@ -1,7 +1,7 @@
 import 'package:flutter_mvvm_news_app/models/news_article.dart';
 
 class NewsArticleViewModel {
-  NewsArticle _newsArticle;
+  final NewsArticle _newsArticle;
 
   NewsArticleViewModel({required NewsArticle article}) : _newsArticle = article;
 

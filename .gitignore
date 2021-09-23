@@ -44,4 +44,4 @@ app.*.map.json
 .fvm
 
 # Config
-lib/config/
+lib/utils/config.*
